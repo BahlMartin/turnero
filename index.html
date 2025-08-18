@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/turnos.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -10,7 +11,7 @@
     <!--- log in --->
     <div id="divlogin">
         <h2 id="LogIn">Log in</h2>
-        <form action="/login" method="get">
+        <form  method="post" id="formLogIn">
             <label for="usuario">Usuario:</label>
             <input type="text" id="usuario" name="usuario" required> <br>
             <label for="contraseña">contraseña:</label>
@@ -18,7 +19,21 @@
             <input type="submit" value="validar">
         </form>
     </div>
-
+    <!--- Solicitar turno --->
+    <div id="divturno">
+        <h2 id="Turno">Turno</h2>
+        <form  method="post" id="formTurno">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required> <br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" required> <br>
+            <label for="especialidad">Especialidad:</label>
+            <input type="text" id="especialidad" name="especialidad" required> <br>
+            <label for="obrasocial">Obra social:</label>
+            <input type="text" id="obrasocial" name="obrasocial" required> <br>
+            <input type="submit" value="Solicitar Turno">
+        </form>
+    </div>
 
 </body>
 </html>
