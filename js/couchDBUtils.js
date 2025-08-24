@@ -55,3 +55,21 @@ export async function obtenerTurnoEspecialidad(database,especialidad) {
     }
 }
 
+export async function cambiarestadoturno(database,id,cambios){
+    let requestUri = `${DATABASE_URL_BASE}/${database}/${id}`;
+        
+    let headers = createHeaders(USERNAME,PASSWORD );
+
+    let basededatos = await httpMethod(requestUri,"GET",null,headers);
+    
+    if (DEBUG_MODE === "INFO"){
+        console.log("basededatos antes de la modificacion",basededatos) //duda por que aparece ya con las modificaciones antes del GET
+    }
+
+    Object.assign(basededatos, cambios);
+    
+    if (DEBUG_MODE === "INFO"){
+        console.log("basededatos modificado",basededatos)
+    }
+    httpMethod(requestUri,"PUT",basededatos,headers);
+}
