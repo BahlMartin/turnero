@@ -8,9 +8,10 @@ addEventListener("DOMContentLoaded",()=>{
 
 function agregarTurnoPaciente() {
     var diayfecha = new Date();
-
+    
     //creacion de objeto de datos del turno del paciente
     let turno = {
+        "_id" : `${especialidad.value}:turno_${diayfecha.toLocaleTimeString()}`,
         "nombre": nombre.value,
         "apellido": apellido.value,
         "dni": dni.value,
@@ -21,5 +22,5 @@ function agregarTurnoPaciente() {
         "estado": "pendiente"
     }
     createDoc(turno,DATABASE_TURNOS);
-    formulario.reset();
+    formTurno.reset();
 }

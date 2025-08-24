@@ -23,3 +23,12 @@ export function createDoc(doc,database){
     }
     httpMethod(requestUri,"POST",doc,headers);
 }
+
+export function getAllDocs(database){
+
+    let requestUri = `${DATABASE_URL_BASE}/${database}/_all_docs`;
+    
+    let headers = createHeaders(USERNAME,PASSWORD );
+
+    httpMethod(requestUri,"GET",null,headers);
+}
