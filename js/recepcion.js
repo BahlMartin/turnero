@@ -20,7 +20,7 @@ function agregarTurnoPaciente() {
         "fecharegistro": diayfecha.toLocaleDateString(),
         "horaregistro": diayfecha.toLocaleTimeString(),
         "estado": "pendiente"
-    }
+    };
     createDoc(turno,DATABASE_TURNOS);
     formTurno.reset();
 }

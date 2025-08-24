@@ -8,4 +8,4 @@ export const USERNAME = "admin";
 
 export const PASSWORD = "admin";
 
-export const DEBUG_MODE = "Test";
+export const DEBUG_MODE = "INFO";

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="./js/recepcion.js"></script>
+    <script type="module" src="./js/doctor.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -49,18 +50,32 @@
 
     <!--- Medico Paciente --->
     <div id="divmedicopaciente">
-        <h2 id="subtitulo">Pacientes</h2>
-        <label for="">Nombre:</label>
-        <p id="nombrepaciente"></p>
-        <label for="">Apellido:</label>
-        <p id="apellidopaciente"></p>
-        <label for="">Dni:</label>
-        <p id="dnipaciente"></p>
-        <label for="">Obra social:</label>
-        <p id="obrasocialpaciente"></p>
+        <button id="btmtraerpaciente">Llamar paciente</button>
+        <h2 id="subtitulo">Paciente</h2>
+
+        <div id="datospaciente">
+            <label for="">Nombre:</label>
+            <p id="nombrepaciente"></p>
+        </div>
+
+        <div id="datospaciente">
+            <label for="">Apellido:</label>
+            <p id="apellidopaciente"></p>
+        </div>
+
+        <div id="datospaciente">
+            <label for="">Dni:</label>
+            <p id="dnipaciente"></p>
+        </div>
+
+        <div id="datospaciente">
+            <label for="">Obra social:</label>
+            <p id="obrasocialpaciente"></p>
+        </div>
+
         <label for="diagnosticopaciente">Diagnostico:</label>
         <input type="text" id="diagnosticopaciente" name="diagnosticopaciente"> 
-        <button type="button" id="btmatendido">Atendido</button>
+        <button id="btmatendido">Atendido</button>
     </div>
 
 </body>

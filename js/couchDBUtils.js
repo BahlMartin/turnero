@@ -32,3 +32,26 @@ export function getAllDocs(database){
 
     httpMethod(requestUri,"GET",null,headers);
 }
+
+export async function obtenerTurnoEspecialidad(database,especialidad) {
+    let requestUri = `${DATABASE_URL_BASE}/${database}/_partition/${especialidad}/_all_docs?include_docs=true`;
+        
+    let headers = createHeaders(USERNAME,PASSWORD );
+
+    let basededatos = await httpMethod(requestUri,"GET",null,headers);
+    
+    if (DEBUG_MODE === "INFO"){
+        console.log("basededatos",basededatos)
+    }
+    if (basededatos.rows.length === 0){
+        return null;
+    }
+    else {
+        for (let ciclos =0;ciclos<basededatos.rows.length;ciclos += 1){
+            if (basededatos.rows[ciclos].doc.estado === "pendiente"){
+                return basededatos.rows[ciclos].doc;
+            }
+        }
+    }
+}
+

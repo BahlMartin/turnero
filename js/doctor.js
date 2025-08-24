@@ -1,3 +1,32 @@
+import { DEBUG_MODE } from "./propiedades.js";
+
+import { DATABASE_TURNOS } from "./propiedades.js";
+
+import { obtenerTurnoEspecialidad } from "./couchDBUtils.js";
+
 addEventListener("DOMContentLoaded",()=>{
-    btmagregarpaciente.addEventListener("click",agregarTurnoPaciente);
+    btmtraerpaciente.addEventListener("click",traerpaciente);
+    btmatendido.addEventListener("click",pacienteatendido);
 });
+
+async function traerpaciente(){
+    let paciente = await obtenerTurnoEspecialidad(DATABASE_TURNOS,"clinico");
+    if (DEBUG_MODE == "INFO"){
+        console.log("traer paciente",paciente);
+    }
+    nombrepaciente.innerText = paciente.nombre;
+    apellidopaciente.innerText = paciente.apellido;
+    dnipaciente.innerText = paciente.dni;
+    obrasocialpaciente.innerText = paciente.obrasocial;
+}
+
+async function pacienteatendido(){
+    let paciente = await obtenerTurnoEspecialidad(DATABASE_TURNOS,"clinico");
+    paciente.estado = "atendido";
+    if (DEBUG_MODE == "INFO"){
+        console.log("paciente atendido",paciente);
+    }
+
+}
+
+
