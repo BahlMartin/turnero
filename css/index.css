@@ -1,0 +1,76 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 30px;
+    font-size: 2.2rem;
+}
+
+#divlogin, #divturno, #divmedicopaciente, #divpaciente {
+    background: #fff;
+    max-width: 350px;
+    margin: 30px auto 0 auto;
+    padding: 24px 28px 20px 28px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    display: none;
+}
+
+#divlogin {
+    display: block;
+}
+
+form label {
+    display: block;
+    margin-bottom: 4px;
+    color: #444;
+    font-size: 1rem;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 7px 10px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #fafafa;
+    box-sizing: border-box;
+}
+
+button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 9px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #125ea2;
+}
+
+#datospaciente {
+    margin-bottom: 10px;
+}
+
+#datospaciente label {
+    font-weight: 500;
+    color: #555;
+}
+
+#datospaciente p {
+    display: inline-block;
+    margin: 0 0 0 8px;
+    color: #222;
+}
