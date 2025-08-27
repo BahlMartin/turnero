@@ -9,3 +9,5 @@ export const USERNAME = "admin";
 export const PASSWORD = "admin";
 
 export const DEBUG_MODE = "INFO";
+
+export const DATABASE_PERSONAS = "personas";

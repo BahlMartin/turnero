@@ -6,13 +6,15 @@ import { obtenerTurnoEspecialidad } from "./couchDBUtils.js";
 
 import { cambiarestadoturno } from "./couchDBUtils.js";
 
+import { especialidad } from "./login.js";
+
 addEventListener("DOMContentLoaded",()=>{
     btmtraerpaciente.addEventListener("click",traerpaciente);
     btmatendido.addEventListener("click",pacienteatendido);
 });
 
 async function traerpaciente(){
-    let paciente = await obtenerTurnoEspecialidad(DATABASE_TURNOS,"clinico");
+    let paciente = await obtenerTurnoEspecialidad(DATABASE_TURNOS,especialidad);
     if (DEBUG_MODE == "INFO"){
         console.log("traer paciente",paciente);
     }
@@ -23,7 +25,7 @@ async function traerpaciente(){
 }
 
 async function pacienteatendido(){
-    let paciente = await obtenerTurnoEspecialidad(DATABASE_TURNOS,"clinico");
+    let paciente = await obtenerTurnoEspecialidad(DATABASE_TURNOS,especialidad);
     paciente.estado = "atendido";
     paciente.diagnostico = diagnosticopaciente.value;
     

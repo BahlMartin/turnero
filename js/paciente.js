@@ -6,13 +6,14 @@ import { contadorpersonas } from "./couchDBUtils.js";
 
 import { obtenerDoc } from "./couchDBUtils.js";
 
+import { dni } from "./login.js";
 
 addEventListener("DOMContentLoaded",()=>{
     btmpacientesadelantes.addEventListener("click",pacientesadelante);
 });
 
 async function pacientesadelante(){
-    let datospaciente = await obtenerDoc(DATABASE_TURNOS,"78123956");
+    let datospaciente = await obtenerDoc(DATABASE_TURNOS,dni);
     if (DEBUG_MODE == "INFO"){
         console.log("traer paciente",datospaciente);
     }

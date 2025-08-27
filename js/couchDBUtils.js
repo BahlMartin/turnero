@@ -10,6 +10,10 @@ import { DATABASE_URL_BASE } from "./propiedades.js";
 
 import { DEBUG_MODE } from "./propiedades.js";
 
+import { DATABASE_TURNOS } from "./propiedades.js";
+
+import { DATABASE_PERSONAS } from "./propiedades.js";
+
 export function createDoc(doc,database){
 
     let requestUri = `${DATABASE_URL_BASE}/${database}`;
@@ -80,20 +84,26 @@ export async function cambiarestadoturno(database,id,cambios){
 
 export async function obtenerDoc(database,dni) {
     let requestUri = `${DATABASE_URL_BASE}/${database}/_find`;
-        
+
+    if (database === DATABASE_PERSONAS) { 
+        var index = "idx_persona_rol"
+    }
+    if (database === DATABASE_TURNOS) {
+        var index = ["idx-turnos-pendientes", "turnos-pendientes-por-fecha"]
+    }
     let headers = createHeaders(USERNAME,PASSWORD );
 
     let body = {
         "selector": { "dni": dni },
         "limit": 1,
-        "use_index": ["idx-turnos-pendientes", "turnos-pendientes-por-fecha"]
+        "use_index": index
     }
 
     let basededatos = await httpMethod(requestUri,"POST",body,headers);
 
     if (DEBUG_MODE === "INFO"){
         console.log("basededatos",basededatos)
-        console.log("paciente", basededatos.docs[0])
+        console.log("paciente", basededatos.docs)
     }
     return basededatos.docs[0] || null;
 }
